@@ -27,10 +27,27 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       get :index, params: {}
 
       expect(response).to be_success
-      # expect(response.body).to look_like_json
+      expect(response.body).to look_like_json
 
       expect(body_as_json.length).to eq(10)
       # expect(body_as_json).to match()
+    end
+  end
+
+  describe "GET #show" do
+    it "Get a single user" do
+      user = FactoryGirl.create(:user)
+
+      get :show, params: {id: user.id}
+
+      expect(response).to be_success
+      expect(response.body).to look_like_json
+
+      expect(body_as_json).to match({
+        "id" => user.id,
+        "name" => user.name,
+        "email" => user.email,
+      })
     end
   end
 
