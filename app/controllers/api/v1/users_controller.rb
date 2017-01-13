@@ -16,6 +16,8 @@ module Api::V1
     end
 
     # POST /users
+    # Admin is the one who will use this method to create new users
+    # from the administration panel
     def create
       @user = User.new(user_params)
 
@@ -48,7 +50,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def user_params
-        params.require(:user).permit(:name, :email)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
       end
   end
 end

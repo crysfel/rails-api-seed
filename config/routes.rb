@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   scope module: 'api' do
     namespace :v1 do
       resources :users
+      resources :auth, only: :create do
+        collection do
+          get 'confirm'
+          post 'login'
+        end
+      end
     end
   end
 end
