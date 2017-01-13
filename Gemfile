@@ -16,6 +16,10 @@ gem 'puma', '~> 3.0'
 # Allows to call to_json on models while defining the fields we need
 gem 'active_model_serializers', '~> 0.10.4'
 
+# Protect agains DoS and other attacks
+# https://github.com/kickstarter/rack-attack
+gem 'rack-attack'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production

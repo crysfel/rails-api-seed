@@ -35,5 +35,7 @@ module Languages
       end
     end
 
+    # Enabling DoS attack protection
+    config.middleware.use Rack::Attack
   end
 end
