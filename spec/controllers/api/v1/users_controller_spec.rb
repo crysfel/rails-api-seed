@@ -29,7 +29,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       expect(response).to be_success
       expect(response.body).to look_like_json
 
-      expect(body_as_json.length).to eq(10)
+      expect(body_as_json["users"].length).to eq(10)
       # expect(body_as_json).to match()
     end
   end
@@ -44,9 +44,11 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       expect(response.body).to look_like_json
 
       expect(body_as_json).to match({
-        "id" => user.id,
-        "name" => user.name,
-        "email" => user.email,
+        "user" => {
+          "id" => user.id,
+          "name" => user.name,
+          "email" => user.email,
+        },
       })
     end
   end

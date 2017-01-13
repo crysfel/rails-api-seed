@@ -14,6 +14,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 
 # Allows to call to_json on models while defining the fields we need
+# https://github.com/rails-api/active_model_serializers
 gem 'active_model_serializers', '~> 0.10.4'
 
 # Protect agains DoS and other attacks
