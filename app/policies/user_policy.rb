@@ -9,12 +9,8 @@ class UserPolicy < ApplicationPolicy
     user.admin? or user.id === record.id
   end
 
-  def update?
-    user.admin? or user.id === record.id
-  end
-
   def show?
-    user === record
+    user.admin? or user.id === record.id
   end
 
   def create?

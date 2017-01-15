@@ -24,7 +24,7 @@ module Api::V1
     # Admin is the one who will use this method to create new users
     # from the administration panel
     def create
-      authorize User
+      authorize current_user
       @user = User.new(user_params)
 
       if @user.save
@@ -35,6 +35,7 @@ module Api::V1
     end
 
     # PATCH/PUT /users/1
+    # Updates the current user information
     def update
       authorize @user
       if @user.update(user_params)
@@ -45,8 +46,9 @@ module Api::V1
     end
 
     # DELETE /users/1
+    # Destroys the selected user, only admins can call this action
     def destroy
-      authorize User
+      authorize current_user
       @user.destroy
     end
 
