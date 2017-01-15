@@ -31,6 +31,9 @@ gem 'bcrypt', '~> 3.1.7'
 # To handle token authentication
 gem 'jwt', '~> 1.5.6'
 
+# ACL gem to handle policies
+gem 'pundit', '~> 1.1.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

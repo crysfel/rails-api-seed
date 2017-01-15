@@ -37,12 +37,8 @@ module Api::V1
       user = User.find_by(email: params[:email].to_s.downcase)
 
       if user && user.authenticate(params[:password])
-        if user.confirmed_at?
-          auth_token = JsonWebToken.encode({ user_id: user.id })
-          render json: { token: auth_token }, status: :authorized
-        else
-          render json: {error: 'Email not verified' }, status: :unauthorized
-        end
+        auth_token = JsonWebToken.encode({ user_id: user.id })
+        render json: { token: auth_token }, status: :authorized
       else
         render json: { error: 'Invalid username / password' }, status: :unauthorized
       end

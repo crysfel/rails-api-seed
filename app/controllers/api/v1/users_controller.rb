@@ -1,18 +1,22 @@
 
 module Api::V1
   class UsersController < ApplicationController
-    before_filter :authenticate_request!
+    before_action :authenticate_request!
     before_action :set_user, only: [:show, :update, :destroy]
 
     # GET /users
+    # Shows the list of users
     def index
+      authorize User
       @users = User.all
 
       render json: @users
     end
 
     # GET /users/1
+    # Shows a single user
     def show
+      authorize @user
       render json: @user
     end
 
@@ -20,6 +24,7 @@ module Api::V1
     # Admin is the one who will use this method to create new users
     # from the administration panel
     def create
+      authorize User
       @user = User.new(user_params)
 
       if @user.save
@@ -31,6 +36,7 @@ module Api::V1
 
     # PATCH/PUT /users/1
     def update
+      authorize @user
       if @user.update(user_params)
         render json: @user
       else
@@ -40,6 +46,7 @@ module Api::V1
 
     # DELETE /users/1
     def destroy
+      authorize User
       @user.destroy
     end
 
