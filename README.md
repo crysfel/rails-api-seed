@@ -1,24 +1,37 @@
-# README
+Rails API Seed
+===========
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a seed project to create a REST API using rails and mysql. It support login authentication using JWT, policies to handle authorization to resources,
 
-Things you may want to cover:
+Features
+--------
+**Endpoints**
+* Sign up and login
+* User management for admin only
+* Asset manager for admin only
 
-* Ruby version
+**Code**
+* Amazon S3 file upload to handle assets
+* JWT for authentication
+* Pundit for policies and privileges
 
-* System dependencies
+Running development
+-------------------
+Clone the project, rename the main folder to your awesome new ploject's name.
 
-* Configuration
+1. Install dependencies
+`$ bundle`
 
-* Database creation
+2. Configure the database name and credentials
+`$ vim config/database.yml`
 
-* Database initialization
+3. Setup database
+`$ rake db:create`
+`$ rake db:migrate`
 
-* How to run the test suite
+4. Run the dev server
+`$ rails s`
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+Deployment instructions
+-----------------------
