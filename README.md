@@ -31,25 +31,25 @@ $ brew install mysql
 
 Running development
 -------------------
-Clone the project, rename the main folder to your awesome new ploject's name.
+Clone the project, rename the main folder to your awesome new project's name.
 
-1. Install dependencies
+Install dependencies
 ```
 $ bundle
 ```
 
-2. Configure the database name and credentials
+Configure the database name and credentials
 ```
 $ vim config/database.yml
 ```
 
-3. Setup database
+Setup database
 ```
 $ rake db:create
 $ rake db:migrate
 ```
 
-4. Run the dev server
+Run the dev server
 ```
 $ rails s
 ```
