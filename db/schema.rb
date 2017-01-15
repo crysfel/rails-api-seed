@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170113042143) do
+ActiveRecord::Schema.define(version: 20170115210148) do
+
+  create_table "assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "assetable_type"
+    t.integer  "assetable_id"
+    t.string   "name"
+    t.string   "content_type"
+    t.string   "size"
+    t.string   "path"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id", using: :btree
+    t.index ["user_id"], name: "fk_rails_590236dc2e", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -24,4 +38,5 @@ ActiveRecord::Schema.define(version: 20170113042143) do
     t.datetime "updated_at",                           null: false
   end
 
+  add_foreign_key "assets", "users"
 end
