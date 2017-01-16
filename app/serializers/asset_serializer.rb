@@ -1,6 +1,9 @@
 class AssetSerializer < ActiveModel::Serializer
-  attributes :id, :file, :description
+  attributes :id, :description
   attribute :file_file_name, key: :name
+  attribute :file_file_size, key: :size
+  attribute :file_content_type, key: :contentType
+  attribute :file, key: :url
 
   def file
     return {
