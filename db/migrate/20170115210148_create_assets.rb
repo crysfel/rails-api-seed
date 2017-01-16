@@ -3,10 +3,8 @@ class CreateAssets < ActiveRecord::Migration[5.0]
     create_table :assets do |t|
       t.integer :user_id
       t.references :assetable, polymorphic: true, index: true
-      t.string  :name
-      t.string  :content_type
-      t.string  :size
-      t.string  :path
+      t.string  :description
+      t.attachment :file
 
       t.timestamps
     end

@@ -16,12 +16,13 @@ ActiveRecord::Schema.define(version: 20170115210148) do
     t.integer  "user_id"
     t.string   "assetable_type"
     t.integer  "assetable_id"
-    t.string   "name"
-    t.string   "content_type"
-    t.string   "size"
-    t.string   "path"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "description"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.index ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id", using: :btree
     t.index ["user_id"], name: "fk_rails_590236dc2e", using: :btree
   end

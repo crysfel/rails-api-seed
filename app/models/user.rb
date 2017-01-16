@@ -11,6 +11,11 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :generate_confirmation_instructions
 
+
+  # Relationships
+  has_many :assets, dependent: :destroy
+
+  # Other methods
   def downcase_email
     self.email = self.email.delete(' ').downcase
   end
