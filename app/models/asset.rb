@@ -9,5 +9,5 @@ class Asset < ApplicationRecord
 
   # Relationships
   belongs_to :user
-  # belongs_to :assetable, polymorphic: true
+  belongs_to :assetable, polymorphic: true, optional: true
 end
